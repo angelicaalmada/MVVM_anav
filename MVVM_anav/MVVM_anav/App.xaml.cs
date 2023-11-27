@@ -1,4 +1,5 @@
 ﻿using MVVM_anav.Vistas;
+using MVVM_anav.Vistas.Pokemon;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,19 +12,12 @@ namespace MVVM_anav
         {
             InitializeComponent();
 
-            MainPage = new pagina1();
+            MainPage = new NavigationPage(new Listapokemon());
         }
 
         protected override void OnStart()
         {
         }
 
-        protected override void OnSleep()
-        {
-        }
-
-        protected override void OnResume()
-        {
-        }
     }
 }

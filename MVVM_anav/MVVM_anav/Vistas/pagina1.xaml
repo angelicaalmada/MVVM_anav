@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MVVM_anav.Vistas.pagina1">
+             x:Class="MVVM_anav.Vistas.pagina1"
+             NavigationPage.HasNavigationBar="False" >
     <Grid BackgroundColor="Gray">
         <StackLayout VerticalOptions="Center">
             <StackLayout
@@ -17,7 +18,7 @@
                     HorizontalOptions="StartAndExpand"
                     Text="{Binding N1}"
                     Keyboard="Numeric"/>
-                
+
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
@@ -39,15 +40,47 @@
                 HorizontalOptions="Center"
                 Command="{Binding Suymarcommand}"
                     TextTransform="None"
-                    BackgroundColor="White"
+                    BackgroundColor="Blue"
                     FontAttributes="Bold"
                     CornerRadius="5"
-                    TextColor="Black"/>
+                    TextColor="Gray"/>
             <Label Text="{Binding R}"
                    TextColor="White"
                    HorizontalOptions="Center"
                    FontAttributes="Bold"
                    FontSize="35"/>
+            <Button Text="Ir a pagina 2"
+                    HorizontalOptions="Center"
+                    CornerRadius="5"
+                    BackgroundColor="White"
+                    FontAttributes="Bold"
+                    Command="{Binding PNavegarpagina2command}"/>
+            <StackLayout HorizontalOptions="Center"
+                         Orientation="Horizontal">
+                <Label TextColor="White"
+                       FontAttributes="Bold"
+                       Text="Picker: "
+                       VerticalOptions="Center"/>
+                <Picker HorizontalOptions="FillAndExpand"
+                        Title="Selecciona una opcion"
+                        TextColor="White"
+                        SelectedIndex="{Binding SeleccionarTipoUsuario}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Administrador</x:String>
+                            <x:String>Empleado</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </StackLayout>
+            <StackLayout HorizontalOptions="Center"
+                         Orientation="Horizontal">
+                <Label TextColor="White"
+                       FontAttributes="bold"
+                       Text="DatePicker: "
+                       VerticalOptions="Center"/>
+                <DatePicker Date="{Binding SeleccionarFecha}" TextColor="White"/>
+            </StackLayout>
         </StackLayout>
     </Grid>
 </ContentPage>

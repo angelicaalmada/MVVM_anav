@@ -8,7 +8,7 @@ using System.ComponentModel;
 
 namespace MVVM_anav.VistaModelo
 {
-    public class BaseViewModel
+    public class BaseViewModel : INotifyPropertyChanged
     {
         public INavigation Navigation;
 

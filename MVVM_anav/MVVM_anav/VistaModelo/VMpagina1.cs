@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVVM_anav.Vistas;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ namespace MVVM_anav.VistaModelo
         string _N1;
         string _N2;
         string _R;
+        string _TipoUsuario;
         #endregion 
         #region CONSTRUCTOR
         public VMpagina1(INavigation navigation)
@@ -21,6 +23,18 @@ namespace MVVM_anav.VistaModelo
         }
         #endregion
         #region OBJETOS
+        public string TipoUsuario
+        {
+            get { return _TipoUsuario; }
+            set { SetValue(ref _TipoUsuario, value); }
+        }
+        public string SeleccionarTipoUsuario
+        {
+            get { return _TipoUsuario; }
+            set { SetProperty(ref _TipoUsuario, value);
+                TipoUsuario = _TipoUsuario;
+            }
+        }
         public string N1
         {
             get { return _N1; }
@@ -38,9 +52,9 @@ namespace MVVM_anav.VistaModelo
         }
         #endregion
         #region PROCESOS
-        public async Task Procesoasync()
+        public async Task NavegarPagina2()
         {
-            
+            await Navigation.PushAsync(new Page2());
         }
         public void Sumar()
         {
@@ -57,7 +71,7 @@ namespace MVVM_anav.VistaModelo
         }
         #endregion
         #region COMANDOS
-        public ICommand Procesoasynccommand => new Command(async () => await Procesoasync());
+        public ICommand PNavegarpagina2command => new Command(async () => await NavegarPagina2());
         public ICommand Suymarcommand => new Command(Sumar);
         #endregion
     }
